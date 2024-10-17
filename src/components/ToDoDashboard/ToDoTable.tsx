@@ -114,7 +114,7 @@ const ToDoTable: React.FC<TodoContextProps> = () => {
             headerName: "Task Name",
             headerAlign: 'center',
             align: 'center',
-            minWidth: 230
+            minWidth: 320
         },
         {
             field: "description",
@@ -128,13 +128,14 @@ const ToDoTable: React.FC<TodoContextProps> = () => {
             headerName: "Status",
             headerAlign: 'center',
             align: 'center',
-            minWidth: 200
+            minWidth: 350
         },
         {
             field: "Edit",
             headerName: "Edit",
             headerAlign: 'center',
             align: 'center',
+            minWidth: 100,
             renderCell: (params) => (
                 <EditIcon
                     currentRowData={params.row}
@@ -148,6 +149,7 @@ const ToDoTable: React.FC<TodoContextProps> = () => {
             headerName: "Delete",
             headerAlign: 'center',
             align: 'center',
+            minWidth: 100,
             renderCell: (params) => (
                 <DeleteIcon
                     currentRowData={params.row}
@@ -189,7 +191,22 @@ const ToDoTable: React.FC<TodoContextProps> = () => {
                         columns={columns}
                         initialState={{ pagination: { paginationModel } }}
                         pageSizeOptions={[5, 10]}
-                        sx={{ border: "1px solid black", backgroundColor: '#f2efe6', height: 400, color: 'black', }}
+
+                        sx={{
+                            border: "2px solid #3A5B8A",
+                            backgroundColor: '#ebf0f0',
+                            height: 400,
+                            color: 'black',
+                            '& .MuiDataGrid-columnHeaders': {
+                                backgroundColor: '#c8d0de', // Change this to your desired header color
+                                color: '#3A5B8A', // Change this to your desired text color
+                            },
+                            '& .MuiDataGrid-columnHeaderTitle': {
+                                fontWeight: 'bold',
+
+                            },
+
+                        }}
                     />
                     {/* </Paper> */}
                 </div>
